@@ -1,0 +1,25 @@
+{
+  "name": "spotify",
+  "version": "1.0.0",
+  "description": "Create a fall playlist with Spotify API",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maureenlholland/spotify.git"
+  },
+  "author": "Maureen Holland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maureenlholland/spotify/issues"
+  },
+  "homepage": "https://github.com/maureenlholland/spotify#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-inject-svg": "^0.1.4",
+    "gulp-sass": "^2.3.2"
+  }
+}

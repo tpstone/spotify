@@ -1,4 +1,26 @@
+//DEFINE VARIABLES
+
+//create variable to hold all related code
 const spotifyApp = {};
+
+//get artist
+spotifyApp.getArtist = function(artist){
+	return $.ajax ({
+		url: 'https://api.spotify.com/v1/search',
+		method: 'GET',
+		dataType: 'json',
+		data: {
+			q: artist,
+			type: 'artist'
+		}
+	})
+};
+
+//get songs (2-3 from each artist)
+
+//make random playlist (fall-themed)
+
+//display playlist to user (use iframe/widget)
 
 spotifyApp.init = function(){
 // User searches for up to 10 artists  (multiple search boxes)
@@ -7,54 +29,24 @@ spotifyApp.init = function(){
 		e.preventDefault();
 		//Get user input
 		var searchArtist = $("input[type=search]").val();
-		spotifyApp.getArtist(searchArtist);
-	});
-};
-
-
-	//Basic structure of our ajax request to find artists based on user input
-	 spotifyApp.getArtist = function(artist){
-		$.ajax ({
-			url: 'https://api.spotify.com/v1/search',
-			method: 'GET',
-			dataType: 'json',
-			data: {
-				q: artist,
-				type: 'artist'
-			}
-		}).then(function(data) {
-			console.log(data);
-			spotifyApp.array = []
-			data.artists.items.forEach(function(artist){
-				spotifyApp.array.push(artist.name.toLowerCase());
-
+		//store result of search for that artist
+		var returnedArtist = spotifyApp.getArtist(searchArtist);
+		//if no artist is returned, alert user
+		//Once artist list is returned, run filter
+		$.when(returnedArtist)
+		.then(function(data) {
+			//filter to find exact match of user input
+			var matchedArtist = data.artists.items.filter(function(artist){
+				//use toLowerCase method to eliminate spelling differences
+				return artist.name.toLowerCase() == searchArtist.toLowerCase();
 			});
-			console.log(spotifyApp.array);
-			// var filteredArtists = data.artists.items.filter(function(item){
-			// 	//change data returned from API to lower case to compare with user input
-			// 	return item.name.toLowerCase() == searchArtist;
-			// })
-			//check that a match exists
-			// console.log(filteredArtists);
-		});
-			//filter out artists that don't match exact query
-			spotifyApp.filteredArtists = spotifyApp.array.filter(function(artist){
-				return artist == searchArtist;
-
-			});
-			console.log(spotifyApp.filteredArtists);
-	};
-	// practice();
+		}); /* ends promise */
+	}); /* ends submit listener */
+}; /* ends init */
 
 //DOCUMENT READY
 $(function(){
+	//initialize app
 	 spotifyApp.init(); 
 });
 
-
-// search for each artist and enter songs as user inputs
-// Search for artists
-// If no match alert user
-// pull 2-3 songs from each artist.
-// Create playlist 
-// display playlist (iframe)

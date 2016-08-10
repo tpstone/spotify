@@ -74,7 +74,7 @@ spotifyApp.init = function(){
 				}
 
 				var randomAlbums = spotifyApp.getRandomAlbums(spotifyApp.randomIDs, 3);
-
+					console.log(randomAlbums);
 			}); /* end artistAlbums promise */
 		}); /* ends returnedArtist promise */
 	}); /* ends submit listener */

@@ -21,5 +21,10 @@
     "gulp-concat": "^2.6.0",
     "gulp-inject-svg": "^0.1.4",
     "gulp-sass": "^2.3.2"
-  }
+  },
+  "keywords": [
+    "spotify",
+    "fall",
+    "playlist"
+  ]
 }

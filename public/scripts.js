@@ -17,7 +17,7 @@ spotifyApp.getArtist = function(artist){
 };
 
 //get songs (2-3 from each artist)
-spotifyApp.getTracks = function(id) {
+spotifyApp.getAlbums = function(id) {
 	return $.ajax({
 		url: 'https://api.spotify.com/v1/artists/' + id + '/albums',
 		method: 'GET',
@@ -52,16 +52,30 @@ spotifyApp.init = function(){
 				return artist.name.toLowerCase() == searchArtist.toLowerCase();
 			});
 			var artistId = matchedArtist[0].id;
-			console.log(artistId);
-			var artistTracks = spotifyApp.getTracks(artistId);
-			console.log(artistTracks)
-			$.when(artistTracks)
+			var artistAlbums = spotifyApp.getAlbums(artistId);
+
+			$.when(artistAlbums)
 			.then(function(albums){
-				console.log(albums);
+				// create empty array which stores album IDs 
+				spotifyApp.randomIDs = [];
+				
+				// push each album ID into an array 
 				albums.items.forEach(function(item){
-					console.log(item.id);
+					spotifyApp.randomIDs.push(item.id);
 				});
-			}); /* end artistTracks promise */
+
+				// Get 3 random album IDs 
+				spotifyApp.getRandomAlbums = function(albums, number) {
+				    var randomArray = [];
+				    for (var i = 0; i < number; i++) {
+				        randomArray.push(albums[Math.floor(Math.random()*albums.length)]);
+				    }
+				    return randomArray;
+				}
+
+				var randomAlbums = spotifyApp.getRandomAlbums(spotifyApp.randomIDs, 3);
+
+			}); /* end artistAlbums promise */
 		}); /* ends returnedArtist promise */
 	}); /* ends submit listener */
 }; /* ends init */

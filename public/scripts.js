@@ -17,6 +17,17 @@ spotifyApp.getArtist = function(artist){
 };
 
 //get songs (2-3 from each artist)
+spotifyApp.getTracks = function(id) {
+	return $.ajax({
+		url: 'https://api.spotify.com/v1/artists/' + id + '/albums',
+		method: 'GET',
+		dataType: 'json',
+		data: {
+			country: 'CA',
+			album_type: 'album',
+		}
+	})
+}
 
 //make random playlist (fall-themed)
 
@@ -40,7 +51,18 @@ spotifyApp.init = function(){
 				//use toLowerCase method to eliminate spelling differences
 				return artist.name.toLowerCase() == searchArtist.toLowerCase();
 			});
-		}); /* ends promise */
+			var artistId = matchedArtist[0].id;
+			console.log(artistId);
+			var artistTracks = spotifyApp.getTracks(artistId);
+			console.log(artistTracks)
+			$.when(artistTracks)
+			.then(function(albums){
+				console.log(albums);
+				albums.items.forEach(function(item){
+					console.log(item.id);
+				});
+			}); /* end artistTracks promise */
+		}); /* ends returnedArtist promise */
 	}); /* ends submit listener */
 }; /* ends init */
 

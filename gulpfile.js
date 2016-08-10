@@ -3,10 +3,11 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
-const svg = require('gulp-inject-svg');
+const injectSvg = require('gulp-inject-svg');
 
 gulp.task('watch', function(){
 	gulp.watch('./dev/styles/**/*.scss', ['styles']);
+	gulp.watch('./dev/index.html', ['svg']);
 });
 
 gulp.task('styles', function(){
@@ -17,8 +18,8 @@ gulp.task('styles', function(){
 });
 
 gulp.task('svg', function(){
-	return(gulp.src('./**/*.html'))
+	return(gulp.src('./dev/*.html'))
 		.pipe(injectSvg())
 		// should there be a copy of index.html in the public folder?
-		.pipe(gulp.dest('./public/'));
+		.pipe(gulp.dest('.'));
 });

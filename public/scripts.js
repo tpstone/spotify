@@ -42,10 +42,10 @@ spotifyApp.getTracks = function(id){
 	})
 }
 
-
-//make random playlist (fall-themed)
-
 //display playlist to user (use iframe/widget)
+spotifyApp.displayPlaylist = function(playlist) {
+	$('iframe').attr('src', playlist);
+};
 
 spotifyApp.init = function(){
 // User searches for up to 10 artists  (multiple search boxes)
@@ -60,6 +60,7 @@ spotifyApp.init = function(){
 		//Once artist list is returned, run filter
 		$.when(returnedArtist)
 		.then(function(data) {
+			console.log(data);
 			//filter to find exact match of user input
 			var matchedArtist = data.artists.items.filter(function(artist){
 				//use toLowerCase method to eliminate spelling differences
@@ -99,29 +100,37 @@ spotifyApp.init = function(){
 						.then(function(){
 							//turn the array-like element into an array
 							var results = Array.prototype.slice.call(arguments);
-							//storing only album information! 
+							console.log(results);
+							//store all album tracks 
 							var allTracks = [];
-
 							results.forEach(function(item){
 								allTracks.push(item[0].items);
 							});
 							console.log(allTracks);
+							//store a random track uri
 							var randomTracks = [];
 							allTracks.forEach(function(track){
-								randomTracks.push(track[Math.floor(Math.random() * allTracks.length)].uri);
+								var randomTrackNumber = Math.floor(Math.random() * track.length);
+								randomTracks.push(track[randomTrackNumber].uri);
 							});
-							console.log(randomTracks);
+							console.log(randomTracks)
+							// store random uris in array
+							var URIarray = [];
+							randomTracks.forEach(function(uri){
+								// console.log(uri);
+								URIarray.push(uri.replace('spotify:track:', ''));
+							});
+							console.log(URIarray);
+							//randomize songs within playlist
+							var shuffledArray = _.shuffle(URIarray);
 
-							// spotifyApp.getRandomAlbums = function(albums, number) {
-							//     var randomArray = [];
-							//     for (var i = 0; i < number; i++) {
-							//         randomArray.push(albums[Math.floor(Math.random()*albums.length)]);
-							//     }
-							//     return randomArray;
-							// }
+							//create embedPlaylist variable with uris from array
+							var embedPlaylist = "https://embed.spotify.com/?uri=spotify:trackset:NOW PLAYING:" + shuffledArray.toString();
 
+							//display playlist to user
+							spotifyApp.displayPlaylist(embedPlaylist);
 
-						}) /*Find songs from random alubms*/
+						}) /* Get random tracks */
 				});/*Get random album*/
 			}); /* end artistAlbums promise */
 		}); /* ends returnedArtist promise */

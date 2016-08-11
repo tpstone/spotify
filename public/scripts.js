@@ -89,7 +89,6 @@ spotifyApp.init = function(){
 				}
 
 				var randomAlbums = spotifyApp.getRandomAlbums(spotifyApp.randomIDs, 3);
-
 				//get popular album tracks 
 				$.when(randomAlbums)
 				.then(function(data){
@@ -98,11 +97,32 @@ spotifyApp.init = function(){
 					});
 					$.when.apply($, spotifyApp.tracks)
 						.then(function(){
-							var results = arguments;
-							console.log(arguments);
-							// spotifyApp.sortRandom(results);
-						})
-				});
+							//turn the array-like element into an array
+							var results = Array.prototype.slice.call(arguments);
+							//storing only album information! 
+							var allTracks = [];
+
+							results.forEach(function(item){
+								allTracks.push(item[0].items);
+							});
+							console.log(allTracks);
+							var randomTracks = [];
+							allTracks.forEach(function(track){
+								randomTracks.push(track[Math.floor(Math.random() * allTracks.length)].uri);
+							});
+							console.log(randomTracks);
+
+							// spotifyApp.getRandomAlbums = function(albums, number) {
+							//     var randomArray = [];
+							//     for (var i = 0; i < number; i++) {
+							//         randomArray.push(albums[Math.floor(Math.random()*albums.length)]);
+							//     }
+							//     return randomArray;
+							// }
+
+
+						}) /*Find songs from random alubms*/
+				});/*Get random album*/
 			}); /* end artistAlbums promise */
 		}); /* ends returnedArtist promise */
 	}); /* ends submit listener */

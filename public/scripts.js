@@ -44,7 +44,7 @@ spotifyApp.getAlbums = function(id) {
 
 // get tracks based on random album generated 
 spotifyApp.getTracks = function(id){
-	console.log('tracks')
+	// console.log('tracks')
 	return $.ajax({
 		url:'https://api.spotify.com/v1/albums/' + id + '/tracks',
 		method: 'GET',
@@ -54,6 +54,7 @@ spotifyApp.getTracks = function(id){
 
 // display dynamic playlist to user (use iframe/widget)
 spotifyApp.displayPlaylist = function(playlist) {
+	// console.log(""playlist)
 	$('iframe').attr('src', playlist);
 };
 
@@ -62,9 +63,10 @@ spotifyApp.init = function(){
 // When user hits select artist, get value of user input
 	$("#form").submit(function(e){
 		e.preventDefault();
-		console.log("submitted");
+		// console.log("submitted");
 		//Get user input
 		var searchArtist = $("input[type=search]").val();
+		$("input[type=search]").val('');
 		//store result of search for that artist
 		var returnedArtist = spotifyApp.getArtist(searchArtist);
 		//if no artist is returned, alert user
@@ -72,14 +74,14 @@ spotifyApp.init = function(){
 		//Once artist list is returned, run filter
 		$.when(returnedArtist)
 		.then(function(data) {
-			console.log(data);
+			// console.log(data);
 			//filter to find exact match of user input
 			var matchedArtist = data.artists.items.filter(function(artist){
 				//use toLowerCase method to eliminate spelling differences
 				return artist.name.toLowerCase() == searchArtist.toLowerCase();
 				});
 
-			console.log(matchedArtist);
+			// console.log(matchedArtist);
 
 			var displayArtist = matchedArtist[0].name;
 			spotifyApp.displayArtistName(displayArtist);
@@ -118,32 +120,33 @@ spotifyApp.init = function(){
 					$.when.apply($, spotifyApp.tracks)
 						.then(function(){
 							//turn the array-like element into an array
-							var results = Array.prototype.slice.call(arguments);
-							console.log(results);
+							let results = Array.prototype.slice.call(arguments);
+							// console.log(results);
 							//store all album tracks 
 							var allTracks = [];
 							results.forEach(function(item){
 								allTracks.push(item[0].items);
 							});
-							console.log(allTracks);
+							// console.log(allTracks);
 							//store a random track uri
-							var randomTracks = [];
+							spotifyApp.randomTracks = [];
+							// console.log("random track!!", spotifyApp.randomTracks);
 							allTracks.forEach(function(track){
 								var randomTrackNumber = Math.floor(Math.random() * track.length);
-								randomTracks.push(track[randomTrackNumber].uri);
+								spotifyApp.randomTracks.push(track[randomTrackNumber].uri);
 							});
-							console.log(randomTracks);
 							// store random uris in array
 							spotifyApp.URIarray = [];
-							randomTracks.forEach(function(uri){
-								// console.log(uri);
+							// console.log("random track!!", spotifyApp.URIarray);
+							spotifyApp.randomTracks.forEach(function(uri){
 								spotifyApp.URIarray.push(uri.replace('spotify:track:', ''));
 							});
 							//randomize songs within playlist
-							var shuffledArray = _.shuffle(spotifyApp.URIarray);
+							spotifyApp.shuffledArray = _.shuffle(spotifyApp.URIarray);
+							console.log("random track!!", spotifyApp.shuffledArray);
 
 							//create embedPlaylist variable with uris from array
-							spotifyApp.embedPlaylist = "https://embed.spotify.com/?uri=spotify:trackset:NOW PLAYING:" + shuffledArray.toString();
+							spotifyApp.embedPlaylist = "https://embed.spotify.com/?uri=spotify:trackset:NOW PLAYING:" + spotifyApp.shuffledArray.toString();
 
 
 						}) /* Get random tracks */
@@ -156,17 +159,31 @@ spotifyApp.init = function(){
 	$("#generatePlaylist").on('click',function(e){
 		e.preventDefault();
 
+		$('iframe').removeAttr('src'); 
+
 		//display playlist to user
+		console.log("PLAYLIST", spotifyApp.embedPlaylist)
+
 		spotifyApp.displayPlaylist(spotifyApp.embedPlaylist);
+
 	}); /* ends playlist click listener */ 
 
 // once user selects artists, submit button to make playlist appear
 	$("#resetPlaylist").on('click',function(e){
 		e.preventDefault();
-		spotifyApp.URIarray = [];
+		// console.log(spotifyApp.shuffledArray);
 
-		$('iframe').removeAttr('src');
-		console.log(spotifyApp.URIarray);
+		// hide iframe after reset button clicked 
+		$('iframe').removeAttr('src'); 
+
+		// enable submit button to work
+		$('#selectArtist').attr('disabled', false);
+
+		// remove list of artists 
+		$('.userSelection').empty();
+
+		// empty tracks array 
+		spotifyApp.tracks = [];
 
 	}); /* ends playlist click listener */ 	
 

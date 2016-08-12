@@ -131,3 +131,11 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+
+html {
+  font-size: 10px; }
+
+body {
+  background-color: #FFDD76;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem; }

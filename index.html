@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Spoti-fall-ify</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500|Oswald:400,300" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="public/styles/style.css">
 </head>
 <body>
 	<!-- HEADER -->
@@ -10,17 +12,26 @@
 		<h1>Create your own Spotify Fall Playlist</h1>
 	</header>
 	<aside>
-		<ul>
+		<ul class="userSelection">
 			<!-- JS WILL ADD CONTENT HERE -->
 		</ul>
 		<button id="generatePlaylist">
 			<p>Submit</p>
 		</button>
+		<button id="resetPlaylist">
+			<p>Reset</p>
+		</button>
 	</aside>
 	<form id="form" action="">
-		<input type="search" placeholder="Please Enter an Artist" value="Kanye West">
+		<!-- <input type="search" placeholder="Please Enter an Artist"> -->
+		<input type="search" placeholder="Please Enter an Artist">
 		<input id="selectArtist" type="submit" value="Choose">
 	</form>
+ 
+ 
+
+<iframe frameborder="0" allowtransparency="true" width="300" height="380"></iframe>
+
 	<!-- FOOTER --> 
 	<footer>
 		<p>Copyright 2016</p>
@@ -28,7 +39,11 @@
 
 	<!-- File ../assets/spirittree.svg was not found by gulp-inject-svg  -->
 
+	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- UNDERSCORE -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<!-- JS -->
 	<script src="../public/scripts.js"></script>
 </body>
 </html>

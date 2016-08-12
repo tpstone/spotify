@@ -1,4 +1,5 @@
 main {
+	height: 100vh;
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -49,10 +50,4 @@ form {
 		display: block;
 		margin: 0 auto;
 	}
-}
-
-.generatedPlaylist {
-	width: 100%;
-	display: flex;
-	justify-content: center;
 }

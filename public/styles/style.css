@@ -137,9 +137,12 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  background-image: url("../../assets/spirittree.svg");
+  background-size: cover; }
 
 main {
+  height: 100vh;
   display: flex;
   flex-wrap: wrap; }
 

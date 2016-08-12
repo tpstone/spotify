@@ -132,6 +132,66 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+main {
+  display: flex;
+  flex-wrap: wrap; }
+
+aside {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center; }
+  aside h2 {
+    width: 100%;
+    text-align: center; }
+  aside ul {
+    width: 80%;
+    list-style-type: none;
+    padding: 0;
+    text-align: center; }
+  aside button {
+    width: 175px;
+    margin: 0 5px; }
+
+form {
+  width: calc(50% - 40px);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 0 20px; }
+  form p {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center; }
+  form input {
+    margin: 0; }
+  form input[type=search] {
+    width: 70%;
+    display: block;
+    margin: 0 auto; }
+  form input[type=submit] {
+    width: 70%;
+    display: block;
+    margin: 0 auto; }
+
+.generatedPlaylist {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
+
 html {
   font-size: 10px; }
 

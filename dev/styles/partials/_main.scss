@@ -1,0 +1,58 @@
+main {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+aside {
+	width: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	h2 {
+		width: 100%;
+		text-align: center;
+	}
+	ul {
+		width: 80%;
+		list-style-type: none;
+		padding: 0;
+		text-align: center;
+	}
+	button {
+		width: 175px;
+		margin: 0 5px;
+	}
+}
+
+form {
+	width: calc(50% - 40px);
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	margin: 0 20px;
+	p {
+		margin: 5px 0;
+		width: 100%;
+		text-align: center;
+	}
+	input {
+		margin: 0;
+	}
+	input[type=search] {
+		width: 70%;
+		display: block;
+		margin: 0 auto;
+	}
+	input[type=submit] {
+		width: 70%;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.generatedPlaylist {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}

@@ -8,7 +8,6 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 @import "partials/variables";
 @import "partials/header";
 @import "partials/main";
-@import "partials/playlist";
 @import "partials/footer";
 
 html {
@@ -19,6 +18,7 @@ body {
 	background-color: $bgColor;
 	font-family: $font-stack-main; 
 	font-size: 1.6rem;
+	color: #FFF;
 }
 
 

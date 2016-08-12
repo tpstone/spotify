@@ -83,6 +83,10 @@ spotifyApp.init = function(){
 
 			// console.log(matchedArtist);
 
+			if (matchedArtist[0] === undefined) {
+
+			}
+
 			var displayArtist = matchedArtist[0].name;
 			spotifyApp.displayArtistName(displayArtist);
 
@@ -158,6 +162,7 @@ spotifyApp.init = function(){
 // once user selects artists, submit button to make playlist appear
 	$("#generatePlaylist").on('click',function(e){
 		e.preventDefault();
+		$(".playlist").css("opacity",1).css("z-index", 10);
 
 		$('iframe').removeAttr('src'); 
 
@@ -165,6 +170,7 @@ spotifyApp.init = function(){
 		console.log("PLAYLIST", spotifyApp.embedPlaylist)
 
 		spotifyApp.displayPlaylist(spotifyApp.embedPlaylist);
+
 
 	}); /* ends playlist click listener */ 
 

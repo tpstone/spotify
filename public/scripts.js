@@ -76,19 +76,13 @@ spotifyApp.init = function(){
 		.then(function(data) {
 			// console.log(data);
 			//filter to find exact match of user input
-			console.log(data.artists);
 			var matchedArtist = data.artists.items.filter(function(artist){
 				//use toLowerCase method to eliminate spelling differences
 				return artist.name.toLowerCase() == searchArtist.toLowerCase();
 				});
 
-			if (matchedArtist[0] === undefined) {
-				prompt("No results found. Make sure you include the full name of your artist.");
-				
-			}
-
 			// console.log(matchedArtist);
- 
+
 			var displayArtist = matchedArtist[0].name;
 			spotifyApp.displayArtistName(displayArtist);
 

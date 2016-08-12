@@ -186,9 +186,14 @@ form {
     margin: 0 auto; }
 
 .generatedPlaylist {
+  height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  background-image: url(../../assets/autumn-leaves.jpg);
+  background-size: cover; }
+  .generatedPlaylist iframe {
+    align-self: center; }
 
 footer {
   width: 100%;

@@ -64,6 +64,16 @@ spotifyApp.displayPlaylist = function(playlist) {
 };
 
 spotifyApp.init = function(){
+// User clicks on arrow to open app
+	$("a").on('click', function(){
+		$("#main").removeClass("hidden");
+		$("footer").removeClass("hidden");
+		$.smoothScroll({
+			scrollElement: $('body'),
+			scrollTarget: '#main'
+		});
+	}) /* end open app */
+
 // User searches for up to 10 artists  (multiple search boxes)
 // When user hits select artist, get value of user input
 	$("#form").submit(function(e){
@@ -192,6 +202,9 @@ spotifyApp.init = function(){
 
 		// remove list of artists 
 		$('.userSelection').empty();
+
+		// hide playlist 
+		$(".playlist").css("opacity",0).css("z-index", -10);
 
 		// empty tracks array 
 		spotifyApp.tracks = [];

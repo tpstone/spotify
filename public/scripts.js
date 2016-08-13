@@ -89,7 +89,7 @@ spotifyApp.init = function(){
 			// console.log(matchedArtist);
 
 			if (matchedArtist[0] === undefined) {
-
+				prompt("Could not find the artist. Please try again.");
 			}
 
 			var displayArtist = matchedArtist[0].name;
@@ -200,6 +200,7 @@ spotifyApp.init = function(){
 
 }; /* ends init */
 
+// $('.play').addClass('animated bounceOutLeft');
 
 
 //DOCUMENT READY

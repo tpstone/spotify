@@ -5,6 +5,8 @@
 	<title>Spoti-fall-ify</title>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500|Oswald:400,300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../public/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="../public/styles/animate.css">
+
 </head>
 <body>
 	<!-- HEADER -->
@@ -12,18 +14,23 @@
 		<h1>Spoti-fall-ify</h1>
 		<h2>Create your own Spotify Fall Playlist</h2>
 		<!-- <button href="#main">Logged in to Spotify? Click here to create your playlist</button> -->
-		<img src="../assets/play.svg" class="play">
+		<a href="#main"><img src="../assets/play.svg" class="play animated pulse infinite" alt="[graphic] Arrow button"></a>
 		<!-- <img src="../assets/tree.png" class="hero">  -->
 <!--  	<p>Already logged in to Spotify? <a href="#main">Click here</a> to start creating your playlist</p>
 		<p>Not logged in yet? <a href="https://www.spotify.com/ca-en/">Come back when you're ready</a></p>   -->
 <!-- 		<img src="../assets/spirittree.svg" alt="[graphic] Tree and two birds"> -->
+
+	<div class="login">
+		<h2><a onclick="window.open('https://accounts.spotify.com/en-CA/login?continue=https:%2F%2Fwww.spotify.com%2Fca-en%2Faccount%2Foverview%2F','name','width=600,height=600')" href="https://accounts.spotify.com/en-CA/login?continue=https:%2F%2Fwww.spotify.com%2Fca-en%2Faccount%2Foverview%2F" target="_blank" class="slide">Login to <b>Spotify</b> <img src="../assets/spotify.svg" alt="[graphic] Spotify icon" class="spotify"> to use this App</a></h2>
+	</div>
+
 	</header>
 	<!-- MAIN -->
 	<main id="main">
 		<!-- USER INPUT -->
 		<form id ="form" action="">
-			<input type="search" placeholder="Please Enter an Artist">
-			<input id="selectArtist" type="submit" value="Choose">
+			<input type="search" placeholder="Please Enter an Artist" required>
+			<input id="selectArtist" type="submit" value="Add to Playlist">
 			<p>Be sure to remember that neither you nor Spotify is on a first-name basis with Kanye West.</p> 
 			<p><strong>Full names only please</strong>.</p>
 			<p>And it's Beyoncé, not Beyonce.</p>
@@ -32,7 +39,7 @@
 		<!-- USER SELECTIONS -->
 		<aside class="clearfix">
 			<button id="generatePlaylist">
-				 Make your Playlist! 
+				 Make my Playlist! 
 			</button>
 			<h2>Keep track of your selections</h2>
 		

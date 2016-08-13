@@ -214,11 +214,12 @@ aside {
     margin: 0;
     padding: 0;
     text-align: center;
-    border-bottom: #3C3C3C 1px solid;
     font-family: "Roboto", sans-serif;
+    border-bottom: #3C3C3C 1px solid;
     line-height: 10vh;
     font-weight: 400;
-    background: #121314; }
+    background: #121314;
+    font-size: 2rem; }
   aside #generatePlaylist {
     float: right;
     width: 30%;
@@ -228,7 +229,13 @@ aside {
     background: #23CF5F;
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
-    font-weight: 700; }
+    font-weight: 700;
+    color: #FFF;
+    outline: none; }
+    aside #generatePlaylist:hover {
+      background: #22E369;
+      border: #22E369 1px solid;
+      border-bottom: #3C3C3C 1px solid; }
   aside ul {
     clear: both;
     list-style-type: none;
@@ -240,16 +247,28 @@ aside {
       height: 10%;
       width: 100%;
       padding: 1.6rem;
-      border-bottom: #121314 1px solid; }
+      border-bottom: #262626 1px solid;
+      background: #121314; }
+      aside ul li:nth-child(2n) {
+        background: #171819; }
   aside #resetPlaylist {
     display: block;
     padding: 10px 20px;
-    background: #ED4145;
-    border: 1px #ED4145 solid;
+    background: #780025;
+    border: 1px #780025 solid;
+    outline: none;
     color: #FFF;
     width: 100%;
     height: 5vh;
-    z-index: 10; }
+    z-index: 10;
+    line-height: 1.6rem;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px; }
+    aside #resetPlaylist:hover {
+      background: #BB003B;
+      border: 1px #BB003B solid; }
   aside .playlist {
     position: absolute;
     z-index: -10;
@@ -258,7 +277,12 @@ aside {
     right: 0;
     bottom: 5vh;
     opacity: 0;
-    background: red; }
+    background: #181818; }
+    aside .playlist iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
 
 form {
   width: calc(50% - 40px);
@@ -269,7 +293,14 @@ form {
   form p {
     margin: 0 auto;
     width: 70%;
-    text-align: center; }
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    background-color: #FF8F23;
+    padding: 10px; }
+    form p strong {
+      text-transform: uppercase; }
   form input {
     margin: 0;
     padding: 20px;
@@ -303,7 +334,15 @@ form {
 footer {
   width: 50%;
   position: fixed;
-  bottom: 0; }
+  bottom: 0;
+  left: 1%;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #7A4A1D; }
+  footer a {
+    color: #7A4A1D; }
 
 html {
   font-size: 10px; }
@@ -322,3 +361,6 @@ a {
   a:hover {
     color: #FFF;
     cursor: pointer; }
+
+.hidden {
+  display: none; }

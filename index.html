@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<!-- VIEWPORT -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Spoti-fall-ify</title>
+	<!-- FAVICON -->
+	<link rel="icon" type="image" href="../assets/leaf.png">
+	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500|Oswald:400,300" rel="stylesheet" type="text/css">
+	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../public/styles/style.css">
+	<!-- ANIMATION -->
 	<link rel="stylesheet" type="text/css" href="../public/styles/animate.css">
 
 </head>
@@ -13,35 +20,41 @@
 	<header>
 		<h1>Spoti-fall-ify</h1>
 		<h2>Create your own Spotify Fall Playlist</h2>
-		<!-- <button href="#main">Logged in to Spotify? Click here to create your playlist</button> -->
+		<!-- link to main section -->
 		<a href="#main"><!-- File ../assets/play.svg was not found by gulp-inject-svg  --></a>
-		<!-- <img src="../assets/tree.png" class="hero">  -->
-<!--  	<p>Already logged in to Spotify? <a href="#main">Click here</a> to start creating your playlist</p>
-		<p>Not logged in yet? <a href="https://www.spotify.com/ca-en/">Come back when you're ready</a></p>   -->
-<!-- 		<img src="../assets/spirittree.svg" alt="[graphic] Tree and two birds"> -->
-
-	<div class="login">
-		<h2><a onclick="window.open('https://accounts.spotify.com/en-CA/login?continue=https:%2F%2Fwww.spotify.com%2Fca-en%2Faccount%2Foverview%2F','name','width=600,height=600')" href="https://accounts.spotify.com/en-CA/login?continue=https:%2F%2Fwww.spotify.com%2Fca-en%2Faccount%2Foverview%2F" target="_blank" class="slide">Login to <b>Spotify</b> <!-- File ../assets/spotify.svg was not found by gulp-inject-svg  --> to use this App</a></h2>
-	</div>
+		<!-- login to Spotify -->
+		<div class="login">
+			<h2>
+				<a onclick="window.open('https://accounts.spotify.com/en-CA/login?continue=https:%2F%2Fwww.spotify.com%2Fca-en%2Faccount%2Foverview%2F','name','width=600,height=600')" href="https://accounts.spotify.com/en-CA/login?continue=https:%2F%2Fwww.spotify.com%2Fca-en%2Faccount%2Foverview%2F" target="_blank" class="slide">Login to <strong class="special">Spotify</strong> <!-- File ../assets/spotify.svg was not found by gulp-inject-svg  --> to use this App</a>
+			</h2>
+		</div>
 
 	</header>
 	<!-- MAIN -->
 	<main id="main" class="hidden">
 		<!-- USER INPUT -->
 		<form id="form" action="">
+			<h2>Make up to 10 artist selections</h2>
 			<input type="search" placeholder="Please Enter an Artist" required>
 			<input id="selectArtist" type="submit" value="Add to Playlist">
 			<p>Be sure to remember that neither you nor Spotify is on a first-name basis with Kanye West. 
-			 <strong>Full names only please</strong>.</p>
+			 <strong>Full names only please.</strong></p>
 			<p>And it's Beyoncé, not Beyonce. 
-			 <strong>Check your <i>accents aigus</i></strong>.</p>
+			 <strong>Check your <i>accents aigus</i>.</strong></p>
 		</form>
 		<!-- USER SELECTIONS -->
 		<aside class="clearfix">
 			<button id="generatePlaylist">
 				 Make my Playlist! 
 			</button>
-			<h2>Keep track of my selections</h2>
+			<h2>
+				<!-- Desktop Copy -->
+				<span class="desktop">Keep track of my</span> 
+				<!-- Tablet and Mobile Copy -->
+				<span class="tablet">See</span> 
+				selections
+				<span class="tablet">below</span>
+			</h2>
 		
 			<ul class="userSelection">
 				<!-- JS WILL ADD CONTENT HERE -->
@@ -65,12 +78,14 @@
 
 	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- MIDNIGHT -->
+	<script src="https://cdn.jsdelivr.net/jquery.midnight/1.1.1/midnight.jquery.min.js"></script>
+	<!-- SMOOTH SCROLL -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
 	<!-- UNDERSCORE -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<!-- JS -->
 	<script src="../public/scripts.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
-
 
 </body>
 </html>

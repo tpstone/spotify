@@ -11,8 +11,11 @@
 	<header>
 		<h1>Spoti-fall-ify</h1>
 		<h2>Create your own Spotify Fall Playlist</h2>
-		<p>Already logged in to Spotify? <a href="#main">Click here</a> to start creating your playlist</p>
-		<p>Not logged in yet? <a href="https://www.spotify.com/ca-en/">Come back when you're ready</a></p>
+		<!-- <button href="#main">Logged in to Spotify? Click here to create your playlist</button> -->
+		<img src="../assets/play.svg" class="play">
+		<!-- <img src="../assets/tree.png" class="hero">  -->
+<!--  	<p>Already logged in to Spotify? <a href="#main">Click here</a> to start creating your playlist</p>
+		<p>Not logged in yet? <a href="https://www.spotify.com/ca-en/">Come back when you're ready</a></p>   -->
 <!-- 		<img src="../assets/spirittree.svg" alt="[graphic] Tree and two birds"> -->
 	</header>
 	<!-- MAIN -->
@@ -27,23 +30,27 @@
 			<p><strong>Check your <i>accents aigus</i></strong>.</p>
 		</form>
 		<!-- USER SELECTIONS -->
-		<aside>
+		<aside class="clearfix">
+			<button id="generatePlaylist">
+				 Make your Playlist! 
+			</button>
 			<h2>Keep track of your selections</h2>
+		
 			<ul class="userSelection">
 				<!-- JS WILL ADD CONTENT HERE -->
 			</ul>
-			<button id="generatePlaylist">
-				<a href="#playlist"><p>Make your Playlist!</p></a>
-			</button>
+
 			<button id="resetPlaylist">
-				<p>Restart</p>
+				Restart
 			</button>
+
+			<!-- USER GENERATED PLAYLIST -->
+			<div class="playlist">
+				<iframe frameborder="0" allowtransparency="true" width="300"height="380"></iframe>
+			</div><!-- end iframe -->
+			
 		</aside>
 	</main>
-	<!-- USER GENERATED PLAYLIST -->
-	<section id="playlist" class="generatedPlaylist">
-		<iframe frameborder="0" allowtransparency="true" width="300" height="380"></iframe>
-	</section>
 	<!-- FOOTER --> 
 	<footer>
 		<p>Copyright 2016</p>
@@ -55,5 +62,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 	<!-- JS -->
 	<script src="../public/scripts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
+
+
 </body>
 </html>

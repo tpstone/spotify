@@ -156,19 +156,18 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #FFDD76;
+  background-color: #222;
   background-image: url(../../assets/tree.png), url(../../assets/wall.png);
   background-repeat: no-repeat, repeat;
   background-position: center 500px, 0;
-  background-size: 500px;
-  background-blend-mode: normal, color-burn; }
+  background-size: 500px; }
   @media all and (max-width: 700px) {
     header {
       background-position: center center; } }
   @media all and (max-width: 500px) {
     header {
       background-size: contain; } }
-  header h2, header a.slide {
+  header h2, header h2 a, header a.slide {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: "Oswald", sans-serif;
@@ -180,7 +179,7 @@ header {
     position: relative;
     transition: color 0.4s; }
     @media all and (max-width: 700px) {
-      header h2, header a.slide {
+      header h2, header h2 a, header a.slide {
         color: white; } }
   header a.slide:after {
     content: '';
@@ -203,13 +202,21 @@ header {
     color: #FFF;
     border-radius: 5px; }
   header .login {
+    width: 100%;
     position: absolute;
     bottom: 2%;
-    right: 2%; }
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem; }
     @media all and (max-width: 700px) {
       header .login {
         width: 100%;
-        text-align: center; } }
+        text-align: center;
+        flex-direction: column; }
+        header .login h2:nth-of-type(1), header .login h2.credits a {
+          order: 2;
+          color: #7A4A1D;
+          font-size: 1rem; } }
   header .play {
     width: 90px; }
   header .spotify {
@@ -410,7 +417,7 @@ html {
   font-size: 10px; }
 
 body {
-  background-color: #FFDD76;
+  background-color: #222;
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   color: #FFF; }

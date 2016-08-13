@@ -180,7 +180,7 @@ spotifyApp.init = function(){
 		e.preventDefault();
 		$(".playlist").css("opacity",1).css("z-index", 10);
 
-		$('iframe').removeAttr('src'); 
+		// $('iframe').removeAttr('src'); 
 
 		//display playlist to user
 		console.log("PLAYLIST", spotifyApp.embedPlaylist)

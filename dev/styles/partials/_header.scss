@@ -28,14 +28,13 @@ header {
 	background-repeat: no-repeat, repeat;
 	background-position: center 500px, 0;
 	background-size: 500px;
-	background-blend-mode: normal, color-burn;
 	@media all and (max-width: $breakpointTablet-sml) {
 		background-position: center center; 
 	}
 	@media all and (max-width: $breakpointMobile) {
 		background-size: contain; 
 	}
-	h2, a.slide {
+	h2, h2 a, a.slide {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		font-family: $font-stack-head;
@@ -75,12 +74,22 @@ header {
 		border-radius: 5px;
 	}
 	.login {
+		width: 100%;
 		position: absolute;
 		bottom: 2%;
-		right: 2%;
+		// right: 2%;
+		display: flex;
+		justify-content: space-between;
+		padding: 0 2rem;
 		@media all and (max-width: $breakpointTablet-sml) {
 			width: 100%;
 			text-align: center;
+			flex-direction: column;
+			h2:nth-of-type(1), h2.credits a { 
+				order: 2; 
+				color: #7A4A1D;
+				font-size: 1rem;
+			}
 		}
 	}
 	.play {

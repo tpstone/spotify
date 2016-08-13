@@ -5,6 +5,11 @@ const spotifyApp = {};
 
 spotifyApp.tracks = [];
 
+// Smooth Scroll 
+$(function() {
+		$('a').smoothScroll();
+});
+
 //  through user input to get exact match of artist
 
 //get artist

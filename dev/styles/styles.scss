@@ -21,6 +21,17 @@ body {
 	color: #FFF;
 }
 
+h1 {
+	font-family: $font-stack-head;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 10rem;
+	text-shadow: 3px 3px 0 #e79805;
+	letter-spacing: 1px;
+	margin:0;
+	// background: #e79805;
+	display: inline-block;
+}
 
 
 

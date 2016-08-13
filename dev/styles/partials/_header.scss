@@ -3,7 +3,38 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	background-image: url("../../assets/spirittree.svg");
-	background-size: cover;
+	align-items: center; 
+	background-color: $bgColor;
+	background-image:  url(../../assets/tree.png), url(../../assets/wall.png);
+	background-repeat: no-repeat, repeat;
+	background-position: center 400px, 0;
+	background-size: 600px;
+	background-blend-mode: normal, color-burn;
+	h2 {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-family: $font-stack-head;
+		font-weight: 700;
+		margin: 5px 0;
+		font-size: 1.3rem;
+		padding: 5px 10px;
+		color: #F3411D;
+	}
+	p {
+		font-family: $font-stack-head;
+		font-weight: 100;
+	}
+	button {
+		background: #F3411D;
+		padding: 30px;
+		border: #F3411D 1px solid;
+		color: #FFF;
+		border-radius: 5px;
+	}
+ 
 }
+ 
+.play {
+	margin: 60px 0 0 10px;
+ 	width: 90px;
+ }

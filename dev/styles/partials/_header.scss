@@ -7,6 +7,12 @@ h1 {
 	letter-spacing: 1px;
 	margin:0;
 	display: inline-block;
+	@media all and (max-width: $breakpointTablet-sml) {
+		font-size: 6rem;
+	}
+	@media all and (max-width: $breakpointMobile) {
+		font-size: 4rem;
+	}
 }
 
 header {
@@ -23,6 +29,12 @@ header {
 	background-position: center 500px, 0;
 	background-size: 500px;
 	background-blend-mode: normal, color-burn;
+	@media all and (max-width: $breakpointTablet-sml) {
+		background-position: center center; 
+	}
+	@media all and (max-width: $breakpointMobile) {
+		background-size: contain; 
+	}
 	h2, a.slide {
 		text-transform: uppercase;
 		letter-spacing: 1px;
@@ -33,6 +45,10 @@ header {
 		padding: 5px 0;
 		color: #F3411D;
 		position: relative;
+		transition: color 0.4s;
+		@media all and (max-width: $breakpointTablet-sml) {
+			color: white; 
+		}
 	}
 	a.slide:after {
 	  content: '';
@@ -41,7 +57,7 @@ header {
 	  left: 0;
 	  width: 0%;
 	  border-bottom: 2px solid #222;
-	  transition: 0.4s;
+	  transition: width 0.4s;
 	}
 	a.slide:hover, a.slide:hover:after {
 	  width: 100%;
@@ -58,19 +74,23 @@ header {
 		color: #FFF;
 		border-radius: 5px;
 	}
-
 	.login {
 		position: absolute;
 		bottom: 2%;
 		right: 2%;
+		@media all and (max-width: $breakpointTablet-sml) {
+			width: 100%;
+			text-align: center;
+		}
 	}
-
 	.play {
 	 	width: 90px;
 	 }
-
 	 .spotify {
 	 	width: 1.3rem;
+	 }
+	 .special {
+	 	color: black;
 	 }
 }
  

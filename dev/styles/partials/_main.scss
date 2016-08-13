@@ -1,14 +1,17 @@
 main {
 	height: 100vh;
+	@media all and (max-width: $breakpointTablet) {
+		height: auto;
+	};
 	display: flex;
 	flex-wrap: wrap;
-	background: #FF8C00;
-	background-image: url(../../assets/wall.png);
-	background-blend-mode: overlay;
 }
 
 aside {
 	width: 50%;
+	@media all and (max-width: $breakpointTablet) {
+		width: 100%;
+	};
 	background: rgb(34, 35, 38);
 	position: relative;
 	h2 {
@@ -24,6 +27,17 @@ aside {
 		font-weight: 400;
 		background: #121314;
 		font-size: 2rem;
+		.tablet {
+			display: none;
+			@media all and (max-width: $breakpointTablet) {
+				display: inline;
+			}
+		}
+		@media all and (max-width: $breakpointTablet) {
+			.desktop {
+				display: none;
+			}
+		}
 	}
 	#generatePlaylist {
 		float: right;
@@ -37,6 +51,7 @@ aside {
 		font-weight: 700;
 		color: #FFF;
 		outline: none;
+		transition: background 0.4s;
 		&:hover {
 			background: #22E369;
 			border: #22E369 1px solid;
@@ -56,7 +71,7 @@ aside {
 			padding: 1.6rem;
 			border-bottom: #262626 1px solid;
 			background: #121314;
-			&:nth-child(2n) {
+			&:nth-child(odd) {
 				background: #171819;
 			}
  		}
@@ -76,6 +91,10 @@ aside {
 		font-family: $font-stack-main;
 		font-weight: bold;
 		letter-spacing: 1px;
+		transition: background 0.4s;
+		@media all and (max-width: $breakpointMobile) {
+			padding: 0;
+		}
 		&:hover {
 			background: #BB003B;
 			border: 1px #BB003B solid;
@@ -100,11 +119,39 @@ aside {
 }
 
 form {
-	width: calc(50% - 40px);
+	width: 50%;
+	@media all and (max-width: $breakpointTablet) {
+		width: 100%;
+		height: 90vh;
+	};
 	display: flex;
 	flex-wrap: wrap;
 	align-content: center;
-	margin: 0 20px;
+
+	//ORANGE TEXTURED WALL
+	// background: #FF8C00;
+	// background-image: url(../../assets/wall.png);
+	// background-blend-mode: overlay;
+
+	//DARK ORANGE TEXTURED WALL
+	// background: darken(#FF8C00, 10);
+	// background-image: url(../../assets/wall.png);
+	// background-blend-mode: overlay;
+
+	//LEAVES WITH LINEAR GRADIENT
+	background: linear-gradient(rgba(255,135,86,0.7), rgba(255,135,86,0.7)), url(../../assets/autumn-leaves.jpg) center center no-repeat;
+	background-size: cover;
+
+	h2 {
+		width: 100%;
+		font-family: $font-stack-head;
+		letter-spacing: 0.1rem;
+		text-align: center;
+		text-transform: uppercase;
+		@media all and (max-width: $breakpointMobile) {
+			font-size: 1.7rem;
+		}
+	}
 	p {
 		margin: 0 auto;
 		width: 70%;
@@ -116,12 +163,18 @@ form {
 		padding: 10px;
 		strong {
 			text-transform: uppercase;
+			@media all and (max-width: $breakpointTablet) {
+				display: block;
+			}
 		}
 	}
 	input {
 		margin: 0;
 		padding: 20px;
 		font-family: $font-stack-head;
+		@media all and (max-width: $breakpointMobile) {
+			padding: 10px;
+		}
 	}
 	input[type=search] {
 		width: 70%;
@@ -129,6 +182,7 @@ form {
 		margin: 0 auto;
 		outline: none;
 		border: 4px #FFF solid;
+		transition: border 0.4s;
 		&:focus, &:hover {
 		border: 4px #FF3D00 solid;
 		}
@@ -142,6 +196,9 @@ form {
 		text-transform: uppercase;
 		outline: none;
 		color: #FFF;
+		@media all and (max-width: $breakpointMobile) {
+			margin: 20px auto;
+		}
 		&:focus, {
 			background: #7A4A1D;
 			border: 1px #7A4A1D solid;

@@ -132,7 +132,19 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+h1 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 10rem;
+  text-shadow: 3px 3px 0 #e79805;
+  letter-spacing: 1px;
+  margin: 0;
+  display: inline-block; }
+
 header {
+  position: relative;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -141,18 +153,30 @@ header {
   background-color: #FFDD76;
   background-image: url(../../assets/tree.png), url(../../assets/wall.png);
   background-repeat: no-repeat, repeat;
-  background-position: center 400px, 0;
-  background-size: 600px;
+  background-position: center 500px, 0;
+  background-size: 500px;
   background-blend-mode: normal, color-burn; }
-  header h2 {
+  header h2, header a.slide {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: "Oswald", sans-serif;
     font-weight: 700;
     margin: 5px 0;
     font-size: 1.3rem;
-    padding: 5px 10px;
-    color: #F3411D; }
+    padding: 5px 0;
+    color: #F3411D;
+    position: relative; }
+  header a.slide:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-bottom: 2px solid #222;
+    transition: 0.4s; }
+  header a.slide:hover, header a.slide:hover:after {
+    width: 100%;
+    color: #222; }
   header p {
     font-family: "Oswald", sans-serif;
     font-weight: 100; }
@@ -162,17 +186,22 @@ header {
     border: #F3411D 1px solid;
     color: #FFF;
     border-radius: 5px; }
-
-.play {
-  margin: 60px 0 0 10px;
-  width: 90px; }
+  header .login {
+    position: absolute;
+    bottom: 2%;
+    right: 2%; }
+  header .play {
+    width: 90px; }
+  header .spotify {
+    width: 1.3rem; }
 
 main {
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  background: -webkit-linear-gradient(147deg, rgba(71, 189, 182, 0) 25%, rgba(255, 221, 118, 0.5)), linear-gradient(-100deg, rgba(90, 0, 32, 0.7) 25%, rgba(90, 0, 32, 0.7)), url(../../assets/autumn-leaves.jpg);
-  background-size: cover; }
+  background: #FF8C00;
+  background-image: url(../../assets/wall.png);
+  background-blend-mode: overlay; }
 
 aside {
   width: 50%;
@@ -185,12 +214,21 @@ aside {
     margin: 0;
     padding: 0;
     text-align: center;
-    border-bottom: #FFF 1px solid; }
+    border-bottom: #3C3C3C 1px solid;
+    font-family: "Roboto", sans-serif;
+    line-height: 10vh;
+    font-weight: 400;
+    background: #121314; }
   aside #generatePlaylist {
     float: right;
     width: 30%;
     height: 10vh;
-    border-bottom: #FFF 1px solid; }
+    border: #23CF5F 1px solid;
+    border-bottom: #3C3C3C 1px solid;
+    background: #23CF5F;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700; }
   aside ul {
     clear: both;
     list-style-type: none;
@@ -201,7 +239,8 @@ aside {
     aside ul li {
       height: 10%;
       width: 100%;
-      padding-top: 2%; }
+      padding: 1.6rem;
+      border-bottom: #121314 1px solid; }
   aside #resetPlaylist {
     display: block;
     padding: 10px 20px;
@@ -233,17 +272,33 @@ form {
     text-align: center; }
   form input {
     margin: 0;
-    padding: 20px; }
+    padding: 20px;
+    font-family: "Oswald", sans-serif; }
   form input[type=search] {
     width: 70%;
     display: block;
-    margin: 0 auto; }
+    margin: 0 auto;
+    outline: none;
+    border: 4px #FFF solid; }
+    form input[type=search]:focus, form input[type=search]:hover {
+      border: 4px #FF3D00 solid; }
   form input[type=submit] {
     width: 70%;
     display: block;
     margin: 10px auto;
-    background: #FFDD76;
-    border: 1px #FFDD76 solid; }
+    background: #FF3D00;
+    border: 1px #FF3D00 solid;
+    text-transform: uppercase;
+    outline: none;
+    color: #FFF; }
+    form input[type=submit]:focus {
+      background: #7A4A1D;
+      border: 1px #7A4A1D solid;
+      transform: translateY(2px); }
+    form input[type=submit]:disabled {
+      background-color: #FF8C00;
+      color: #FFC579;
+      border: #FF8C00 1px solid; }
 
 footer {
   width: 50%;
@@ -259,12 +314,11 @@ body {
   font-size: 1.6rem;
   color: #FFF; }
 
-h1 {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 10rem;
-  text-shadow: 3px 3px 0 #e79805;
-  letter-spacing: 1px;
-  margin: 0;
-  display: inline-block; }
+b {
+  color: #222; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    color: #FFF;
+    cursor: pointer; }

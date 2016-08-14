@@ -75,6 +75,14 @@ spotifyApp.init = function(){
 		});
 	}) /* end open app */
 
+// SmoothScroll to take user back to top of main form in mobile breakpoint
+	$("#resetPlaylist").on('click', function(){
+			$.smoothScroll({
+				scrollElement: $('body'),
+				scrollTarget: '#form'
+			});
+		})
+
 // User searches for up to 10 artists  (multiple search boxes)
 // When user hits select artist, get value of user input
 	$("#form").submit(function(e){

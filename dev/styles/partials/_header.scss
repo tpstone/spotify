@@ -26,7 +26,7 @@ header {
 	background-color: $bgColor;
 	background-image:  url(../../assets/tree.png), url(../../assets/wall.png);
 	background-repeat: no-repeat, repeat;
-	background-position: center 500px, 0;
+	background-position: center 550px, 0;
 	background-size: 500px;
 	@media all and (max-width: $breakpointTablet-sml) {
 		background-position: center center; 
